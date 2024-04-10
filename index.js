@@ -1,35 +1,44 @@
 const people = [
-  {
-    name: "John",
-    age: 17,
-  },
-  {
-    name: "Jane",
-    age: 20,
-  },
-  {
-    name: "Mary",
-    age: 25,
-  },
-  {
-    name: "Peter",
-    age: 30,
-  },
-  {
-    name: "Paul",
-    age: 35,
-  },
-];
-
-function verifyAdulthood(personName, personAge) {
-  if (personAge >= 18) return `Welcome, ${personName}!`;
-
-  return `You are not old enough to enter, ${personName}.`;
-}
-
-for (
-  let i = 0; i < people.length; i++
-) {
-  const message = verifyAdulthood(people[i].name, people[i].age)
-  console.log(message)
-}
+    { 
+        id: 1, 
+        name: "John Doe", 
+        age: 23 
+    },
+    { 
+        id: 2, 
+        name: "Jane Doe", 
+        age: 29 
+    },
+    { 
+        id: 3, 
+        name: "Jim Doe", 
+        age: 34 
+    },
+    { 
+        
+        id: 4, 
+        name: "Jill Doe", 
+        age: 45 
+    },
+    { 
+        id: 5, 
+        name: "Jack Doe", 
+        age: 56 
+    },
+    { 
+        id: 6, 
+        name: "Jenny Doe", 
+        age: 67 
+    },
+  ];
+  
+  function renameOdds(p) {
+    return p.name((person) => {
+      if (person.id % 2 !== 0) {
+        return { ...p, name: "Odd Name" };
+      }
+      return p;
+    });
+  }
+  
+  console.log(renameOdds(people));
